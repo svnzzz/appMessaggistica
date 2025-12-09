@@ -12,6 +12,8 @@ func SetupRouter() *gin.Engine {
 
 	r.StaticFile("/", "./index.html")
 
+	r.StaticFile("/icon.png", "./icon.png")
+
 	r.POST("/register", controllers.Register)
 	r.POST("/login", controllers.Login)
 
