@@ -9,6 +9,9 @@ import (
 
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
+
+	r.StaticFile("/", "./index.html")
+
 	r.POST("/register", controllers.Register)
 	r.POST("/login", controllers.Login)
 

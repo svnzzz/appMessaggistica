@@ -6,10 +6,16 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	connStr := "postgres://gouser:gopass@localhost:5432/godb?sslmode=disable"
+	if err := godotenv.Load(); err != nil {
+		log.Println("Nessun file .env trovato (ok se siamo in produzione)")
+	}
+
+	connStr := os.Getenv("DATABASE_URL")
 	database.InitDB(connStr)
 
 	r := routers.SetupRouter()
