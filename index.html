@@ -76,6 +76,9 @@
                 currentUser = JSON.parse(userStr);
                 showChat();
             }
+            else {
+                toggleAuthMode();
+            }
         };
 
         function toggleAuthMode() {
